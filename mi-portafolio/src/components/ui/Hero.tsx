@@ -55,7 +55,7 @@ export const Hero = () => {
         const pos = positions[i] || positions[0];
         el.style.left    = pos.x + 'px';
         el.style.top     = pos.y + 'px';
-        el.style.opacity = ((TRAIL - i) / TRAIL) * 0.25;
+        el.style.opacity = String(((TRAIL - i) / TRAIL) * 0.25);
         el.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.1})`;
       });
 
