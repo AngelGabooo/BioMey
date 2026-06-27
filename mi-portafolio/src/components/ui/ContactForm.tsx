@@ -42,7 +42,7 @@ export const ContactForm = ({ className }: ContactFormProps) => {
         <FormField
           control={form.control}
           name="name"
-          render={({ field }) => (
+          render={({ field }: { field: any }) => (
             <FormItem>
               <FormLabel className="text-gray-300">Nombre</FormLabel>
               <FormControl>
@@ -60,7 +60,7 @@ export const ContactForm = ({ className }: ContactFormProps) => {
         <FormField
           control={form.control}
           name="email"
-          render={({ field }) => (
+          render={({ field }: { field: any }) => (
             <FormItem>
               <FormLabel className="text-gray-300">Email</FormLabel>
               <FormControl>
@@ -79,7 +79,7 @@ export const ContactForm = ({ className }: ContactFormProps) => {
         <FormField
           control={form.control}
           name="subject"
-          render={({ field }) => (
+          render={({ field }: { field: any }) => (
             <FormItem>
               <FormLabel className="text-gray-300">Asunto</FormLabel>
               <FormControl>
@@ -97,7 +97,7 @@ export const ContactForm = ({ className }: ContactFormProps) => {
         <FormField
           control={form.control}
           name="message"
-          render={({ field }) => (
+          render={({ field }: { field: any }) => (
             <FormItem>
               <FormLabel className="text-gray-300">Mensaje</FormLabel>
               <FormControl>
