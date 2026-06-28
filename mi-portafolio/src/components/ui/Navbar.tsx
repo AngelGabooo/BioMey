@@ -6,10 +6,11 @@ import { usePathname } from 'next/navigation'; // <-- Importar usePathname
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
+// En Navbar.tsx
 const navItems = [
   { name: 'Sobre mí',   href: '#sobre-mi',   isExternal: false },
   { name: 'Servicios',  href: '#servicios',  isExternal: false },
-  { name: 'Servicios+', href: '/servicios-plus', isExternal: true }, // Cambiado
+  { name: 'Servicios+', href: '/servicios', isExternal: true },
   { name: 'Portafolio', href: '#portafolio', isExternal: false },
   { name: 'Precios',    href: '#precios',    isExternal: false },
   { name: 'Contacto',   href: '#contacto',   isExternal: false },

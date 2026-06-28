@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emailjs from '@emailjs/browser';
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 
 // Registrar el plugin de ScrollTrigger solo en el cliente
 if (typeof window !== 'undefined') {
@@ -12,9 +13,9 @@ if (typeof window !== 'undefined') {
 
 // ── TUS CREDENCIALES DE EMAILJS ──
 const EMAILJS_CONFIG = {
-  PUBLIC_KEY: '9o1-iq4oNrAxy0XDo',      // <--- REEMPLAZA CON TU PUBLIC KEY
-  SERVICE_ID: 'service_nmcqlce',          // <--- TU SERVICE ID
-  TEMPLATE_ID: 'template_kd0vifi',        // <--- TU TEMPLATE ID
+  PUBLIC_KEY: '9o1-iq4oNrAxy0XDo',
+  SERVICE_ID: 'service_nmcqlce',
+  TEMPLATE_ID: 'template_kd0vifi',
 };
 
 export const ContactSection = () => {
@@ -72,7 +73,7 @@ export const ContactSection = () => {
     return () => { cancelAnimationFrame(id); window.removeEventListener('resize', onResize); };
   }, []);
 
-  // ── GSAP + SCROLLTRIGGER (EFECTO DE CONSTRUCCIÓN) ──
+  // ── GSAP + SCROLLTRIGGER ──
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -211,19 +212,16 @@ export const ContactSection = () => {
     setSent(false);
 
     try {
-      // Inicializar EmailJS con tu public key
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-      // Datos para enviar - Ajusta los nombres de los campos según tu plantilla
       const templateParams = {
-        name: formData.name,           // {{name}} en tu plantilla
-        email: formData.email,         // {{email}} en tu plantilla
-        message: formData.message,     // {{message}} en tu plantilla
-        title: 'Contacto desde portafolio', // {{title}} en tu plantilla
-        to_email: '231183@ids.upchiapas.edu.mx', // Tu email
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        title: 'Contacto desde portafolio',
+        to_email: 'a20624646@gmail.com',
       };
 
-      // Enviar el correo
       const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
@@ -246,7 +244,7 @@ export const ContactSection = () => {
 
   return (
     <>
-
+    
       <section
         ref={sectionRef}
         className="ct-root"
@@ -274,9 +272,19 @@ export const ContactSection = () => {
             <p className="ct-eyebrow ct-header-item">// contact.tsx</p>
             <span className="ct-dline ct-header-item" />
             <h2 className="ct-title ct-header-item">
-              ¿HABLAMOS<br />
-              <span className="ct-outline">DE TU PROYECTO?</span>
-            </h2>
+  ¿HABLAMOS<br />
+  <span 
+    className="ct-outline"
+    style={{ 
+      WebkitTextStroke: '2.8px #06b6d4', 
+      color: 'transparent',
+      WebkitTextFillColor: 'transparent',
+      paintOrder: 'stroke fill'
+    }}
+  >
+    DE TU PROYECTO?
+  </span>
+</h2>
             <p className="ct-sub ct-header-item">
               Cuéntame tu idea y trabajemos juntos para hacerla realidad.
             </p>
@@ -286,56 +294,57 @@ export const ContactSection = () => {
           <div className="ct-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
 
             {/* INFO */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              {[
-                {
-                  icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6',
-                  label: 'Email',
-                  value: 'a20624646@gmail.com',
-                },
-                {
-                  icon: 'M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.59 2 2 0 012-2.18h3a2 2 0 012 1.72c.13 1 .37 1.98.72 2.91a2 2 0 01-.45 2.11L6.09 6.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.93.35 1.91.59 2.91.72A2 2 0 0122 16.92z',
-                  label: 'Teléfono',
-                  value: '+52 81 4438 4806',
-                },
-                {
-                  icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0zM12 10m-3 0a3 3 0 106 0 3 3 0 00-6 0',
-                  label: 'Ubicación',
-                  value: 'Tuxtla Gutiérrez, Chiapas, México',
-                },
-              ].map((item, index) => (
-                <div 
-                  key={item.label} 
-                  className="ct-info-item"
-                  style={{ 
-                    display: 'flex', 
-                    alignItems: 'flex-start', 
-                    gap: 12,
-                    flexWrap: 'wrap'
-                  }}
-                >
-                  <div className="ct-icon-wrap">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d={item.icon} />
-                    </svg>
-                  </div>
-                  <div style={{ flex: 1, minWidth: 120 }}>
-                    <p className="ct-info-label">{item.label}</p>
-                    <p className="ct-info-val" style={{ wordBreak: 'break-all' }}>{item.value}</p>
-                  </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {/* Email */}
+              <div className="ct-info-item ct-info-item">
+                <div className="ct-icon-wrap">
+                  <Mail size={18} stroke="rgba(255,255,255,0.7)" />
                 </div>
-              ))}
+                <div style={{ flex: 1 }}>
+                  <p className="ct-info-label">Email</p>
+                  <p className="ct-info-val">a20624646@gmail.com</p>
+                </div>
+              </div>
 
+              {/* Teléfono */}
+              <div className="ct-info-item ct-info-item">
+                <div className="ct-icon-wrap">
+                  <Phone size={18} stroke="rgba(255,255,255,0.7)" />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p className="ct-info-label">Teléfono</p>
+                  <p className="ct-info-val">+52 81 4438 4806</p>
+                  <a href="tel:+528144384806" className="ct-info-phone-btn">
+                    <Phone size={14} />
+                    Llamar ahora
+                  </a>
+                </div>
+              </div>
+
+              {/* Ubicación */}
+              <div className="ct-info-item ct-info-item">
+                <div className="ct-icon-wrap">
+                  <MapPin size={18} stroke="rgba(255,255,255,0.7)" />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p className="ct-info-label">Ubicación</p>
+                  <p className="ct-info-val">Tuxtla Gutiérrez, Chiapas, México</p>
+                </div>
+              </div>
+
+              {/* Horario */}
               <div className="ct-schedule ct-schedule-item">
                 <p className="ct-schedule-title">// horario.ts</p>
-                {[['Lunes – Viernes', '06:00 – 11:00'], ['Sábado', '10:00 – 20:00']].map(([day, time]) => (
+                {[
+                  ['Lunes – Viernes', '06:00 – 11:00'],
+                  ['Sábado', '10:00 – 20:00'],
+                ].map(([day, time]) => (
                   <div key={day} style={{ 
                     display: 'flex', 
                     justifyContent: 'space-between', 
                     fontSize: 11, 
                     color: 'rgba(255,255,255,.3)', 
-                    padding: '3px 0',
+                    padding: '4px 0',
                     flexWrap: 'wrap',
                     gap: 4
                   }}>
@@ -390,12 +399,8 @@ export const ContactSection = () => {
               <div className="ct-divider ct-form-field" />
 
               <button type="submit" className="ct-btn ct-form-btn" disabled={loading}>
+                <Send size={16} />
                 <span>{loading ? 'Enviando...' : 'Enviar mensaje'}</span>
-                <span className="ct-btn-arrow">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
-                </span>
               </button>
 
               {sent && (

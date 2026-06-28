@@ -109,10 +109,14 @@ export const AboutSection = () => {
         }).join('');
         
         // Unir con un salto de línea
-        titleEl.innerHTML = `
-          <span style="display:block">${line1Chars}</span>
-          <span style="display:block; -webkit-text-stroke: 2px #fff; color: transparent;">${line2Chars}</span>
-        `;
+       titleEl.innerHTML = `
+  <span style="display:block">${line1Chars}</span>
+  <span style="display:block; 
+               -webkit-text-stroke: 2.5px #06b6d4; 
+               color: transparent;">
+    ${line2Chars}
+  </span>
+`;
       }
 
       // ── Estados iniciales ──

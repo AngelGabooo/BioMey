@@ -454,9 +454,19 @@ export const TestimonialsSection = () => {
             <p className="tm-eyebrow tm-header-item">// testimonials.tsx</p>
             <span className="tm-dline tm-header-item" />
             <h2 className="tm-title tm-header-item">
-              LO QUE DICEN<br />
-              <span className="tm-outline">MIS CLIENTES</span>
-            </h2>
+  LO QUE DICEN<br />
+  <span 
+    className="tm-outline"
+    style={{ 
+      WebkitTextStroke: '2.8px #06b6d4', 
+      color: 'transparent',
+      WebkitTextFillColor: 'transparent',
+      paintOrder: 'stroke fill'
+    }}
+  >
+    MIS CLIENTES
+  </span>
+</h2>
             <p className="tm-sub tm-header-item">Experiencias reales de quienes ya confiaron en mi trabajo.</p>
           </div>
 
