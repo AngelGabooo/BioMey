@@ -400,4 +400,4 @@ export const CoverageSection = () => {
       `}</style>
     </section>
   );
-};
+};export default CoverageSection; // ✅ Agregar

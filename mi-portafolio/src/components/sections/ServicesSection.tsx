@@ -111,8 +111,7 @@ const EXTRA_SERVICES = [
   'Migración de sistemas', 'Testing & QA', 'CI/CD pipelines', 'Documentación técnica',
 ];
 
-export const ServicesSection = () => {
-  const sectionRef  = useRef<HTMLElement>(null);
+const ServicesSection = () => {  const sectionRef  = useRef<HTMLElement>(null);
   const canvasRef   = useRef<HTMLCanvasElement>(null);
   const contentRef  = useRef<HTMLDivElement>(null);
   const titleRef    = useRef<HTMLHeadingElement>(null);
@@ -550,3 +549,5 @@ export const ServicesSection = () => {
     </>
   );
 };
+
+export default ServicesSection;

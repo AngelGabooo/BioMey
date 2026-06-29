@@ -407,3 +407,5 @@ export const StatsSection = () => {
     </section>
   );
 };
+
+export default StatsSection; // ✅ Agregar
